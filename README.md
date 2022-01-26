@@ -13,12 +13,12 @@ type the following two commands:
 See the figure below, where we assume the root directory is *F:\github\HybridHEMS*.
 ![env](doc/img/env-setup.png)
 
-As for the RL Python code, please refer to the separate repository [rl](.).
+As for the RL Python code, please refer to the separate repository [RL_HEMS](https://github.com/leeraiyan/RL_HEMS).
 
 ## File organization and how to run
 
 - The implementation of the core functions including MILP and IL is provided in the HEMS package in *./src/HEMS*. All functions are documented in details.
-- Jupyter notebooks in *./notebook* are executed to run different experiments with the above HEMS package. The notebooks can be run in [VS code](https://code.visualstudio.com/docs/datascience/jupyter-notebooks) or in a browser with [IJulia](https://github.com/JuliaLang/IJulia.jl).
+- Jupyter notebooks in *./notebook* are executed to run different experiments with the above HEMS package. The notebooks can be run in [VS code](https://code.visualstudio.com/docs/datascience/jupyter-notebooks) or in a browser with [IJulia](https://github.com/JuliaLang/IJulia.jl). Alternatively, you may view the notebooks directly on GitHub.
   - Run *notebook\IL\IL_data.ipynb* to generate the expert data.
   - Run *notebook\IL\BC_shiftable.ipynb* to train the DNN agents for shiftable loads via IL based on the above expert data.
   - Run *notebook\IL\inspection.ipynb* to inspect characteristics of the algorithms as shown in the paper.
