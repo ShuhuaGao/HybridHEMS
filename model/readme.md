@@ -1,0 +1,1 @@
+After training, the DNN agents for shiftable loads are stored in the *IL* subfolder.
