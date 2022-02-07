@@ -25,36 +25,6 @@ function (agent::Agent)(X)
     return agent.model(Xn)
 end
 
-
-build_AD_net(tf = relu) = Chain(
-    Dense(3, 200, tf),
-    Dropout(0.1),
-    Dense(200, 100, tf),
-    Dropout(0.1),
-    Dense(100, 50, tf),
-    Dropout(0.1),
-    Dense(50, 1)
-)
-
-
-"""
-    train_AD_agent(X::AbstractMatrix, y::AbstractVector; tf=relu, kwargs...)->Tuple{Agent, Matrix}
-
-Train a decision agent for an AD load using state-action data (`X`, `y`). The model in the returned
-agent is a DNN regressor.
-
-A tuple `(agent, loss_history)` is returned. The two columns of `loss_history` refer to the training
-loss and validation loss curves respectively.
-"""
-function train_AD_agent(X::AbstractMatrix, y::AbstractVecOrMat; tf = relu, kwargs...)::Tuple{Agent,Matrix}
-    Xn, urt = normalize(X)
-    model = build_AD_net(tf)
-    loss = Flux.mse
-
-    hist = trainNN!(model, Xn, y, loss; kwargs...)
-    return (Agent(urt, model), hist)
-end
-
 """
     eval_loss(loader, model, l; device=cpu) -> Float64
 
